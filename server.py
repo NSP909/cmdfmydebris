@@ -18,8 +18,12 @@ def process_image():
     path = request.json
     image_path = path['image_path']
     output = generate_description(image_path)
+    total=sum(output.values())
+    print(total)
+    output['totalz']=total
+    output['cood']="56.0738, 80.27733"
     print(output)
-
+    
     # Ensure output is in the format suitable for MongoDB
     try:
         # Insert each item in the 'debris_type' list separately
@@ -28,6 +32,24 @@ def process_image():
         return jsonify({"message": "Data inserted successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
+    
+@app.route('/get-co', methods=['GET'])
+def get_co():
+    data = db.items.find()  # Querying 'calories' collection
+    results = [calorie for calorie in data]# Convert cursor to a list of dictionaries
+    
+    if not results:
+        return jsonify({"message": "No data found"})
+    total=0
+    d={}
+    for result in results:
+        result['_id'] = str(result['_id'])
+        if 'totalz' in result:
+            total+=result['totalz']
+            
+    for result in results:
+        if 'cood' and 'totalz' in result:
+            d[result['totalz']/total]=result['cood']
+    return jsonify(d)
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
