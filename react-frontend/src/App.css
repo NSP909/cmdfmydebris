@@ -4,20 +4,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #1a1a1a, #222222);
-  color: #fff;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #ffffff; /* White background */
 }
 
 .container {
   max-width: 800px;
+  margin: 0 auto;
   padding: 40px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white container background */
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative; /* Position relative for z-index */
+  z-index: 1; /* Ensure container is above background */
 }
 
 .header {
@@ -27,11 +25,12 @@ body {
 
 .header h1 {
   font-size: 42px;
-  margin-bottom: 20px;
+  color: #ffffff; /* Dark gray header text */
 }
 
 .sub-header {
   font-size: 20px;
+  color: #ececec; /* Medium gray sub-header text */
   margin-bottom: 30px;
 }
 
@@ -40,24 +39,25 @@ body {
 }
 
 .upload-title {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
+  color: #ffffff; /* Dark gray upload title text */
   margin-bottom: 20px;
 }
 
 .upload-btn {
   padding: 12px 24px;
-  background-color: #ff6f61;
-  color: #fff;
+  background-color: #000000; /* Black button color */
+  color: #ffffff; /* White button text color */
   border: none;
-  border-radius: 5px;
+  border-radius: 3px; /* Adjust border-radius for a more square button */
   font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
 }
 
 .upload-btn:hover {
-  background-color: #ff4f4f;
+  background-color: #333333; /* Darker shade on hover */
 }
 
 .upload-icon {
@@ -68,57 +68,33 @@ body {
   display: none;
 }
 
-.image-preview {
-  margin-top: 40px;
+/* Style for the choose image button */
+.choose-image-btn {
+  padding: 12px 24px;
+  background-color: #000000; /* Black button color */
+  color: #ffffff; /* White button text color */
+  border: none;
+  border-radius: 3px; /* Adjust border-radius for a more square button */
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
 }
 
-.preview-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.choose-image-btn:hover {
+  background-color: #333333; /* Darker shade on hover */
 }
 
-.preview-image {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-}
-
-.footer {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.footer p {
-  margin: 10px 0;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-
-  .header h1 {
-    font-size: 32px;
-  }
-
-  .sub-header {
-    font-size: 16px;
-  }
-
-  .upload-title {
-    font-size: 20px;
-  }
-
-  .upload-btn {
-    font-size: 16px;
-  }
-
-  .preview-title {
-    font-size: 20px;
-  }
-
-  .footer {
-    font-size: 14px;
-  }
+/* Cross pattern background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%),
+    linear-gradient(to right, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%);
+  background-size: 40px 40px;
+  z-index: -1; /* Ensure background is behind content */
 }

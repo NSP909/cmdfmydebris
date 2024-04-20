@@ -1,66 +1,49 @@
 /* ImageUpload.css */
 
+/* Container */
 .image-upload-container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 50px;
-    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    padding: 70px;
+    background-color: #1e1e3c; /* Dark blue background */
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+  }
+  
+  /* Title */
+  .upload-title {
+    margin-bottom: 30px;
+    color: #b70d0d; /* Red color */
+    font-size: 32px;
+    font-weight: bold;
     text-align: center;
   }
   
-  .upload-title {
-    margin-bottom: 30px;
-    color: #fff;
-    font-size: 36px;
-    font-weight: bold;
-  }
-  
-  .upload-input-container {
-    margin-bottom: 50px;
-  }
-  
+  /* Upload button */
   .upload-label {
     display: inline-block;
-    padding: 20px 40px;
-    background: linear-gradient(135deg, #ff4e50, #f9d423);
-    color: #fff;
-    border-radius: 50px;
+    padding: 15px 30px;
+    background-color: #b70d0d; /* Red button color */
+    color: #ffffff; /* White text color */
+    border: 2px solid #b70d0d; /* Red border */
+    border-radius: 25px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    font-size: 24px;
+    transition: all 0.3s ease;
+    font-size: 18px;
     font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px; /* Move button down */
   }
   
   .upload-label:hover {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    background-color: transparent; /* Transparent background on hover */
+    color: #b70d0d; /* Red text color on hover */
   }
   
   .upload-icon {
-    margin-right: 20px;
+    margin-right: 10px;
   }
-  
-  .upload-input {
-    display: none;
-  }
-  
-  .image-preview {
-    margin-top: 50px;
-  }
-  
-  .preview-title {
-    color: #fff;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .preview-image {
-    max-width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-  }
-  
   
