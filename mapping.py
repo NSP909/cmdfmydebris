@@ -3,6 +3,7 @@ import os
 import shutil
 import numpy as np
 import os
+import random
 
 def gen_coords(num: int) -> list[float,float]:
     x = np.linspace(-76.5358951,-76.5118625, num)
@@ -10,6 +11,24 @@ def gen_coords(num: int) -> list[float,float]:
     coords = []
     for i in zip(x, y):
         coords.append([i[0].round(10), i[1].round(10)])
+    return coords
+
+def count_files_in_folder(folder_path):
+    files = os.listdir(folder_path)
+    num_files = len(files)
+    return num_files
+def rand_coords():
+    num = count_files_in_folder("ENTER PATH HERE")
+    xuplim = 39.232301
+    yuplim = -76.502078
+    xlowlim = 39.202423
+    ylowlim = -76.557055
+    i=0
+    coords = []
+    while(i<num):
+        temp_tuple =(random.uniform(xlowlim,xuplim),random.uniform(ylowlim,yuplim))
+        coords.append(temp_tuple)
+        i+=1
     return coords
 
 def grab_frames(path):
