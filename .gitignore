@@ -1,0 +1,6 @@
+.env
+.venv
+vid.mp4
+frames
+/person-detect/tmp
+.DS_Store
