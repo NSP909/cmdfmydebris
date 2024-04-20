@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageUpload from './ImageUpload';
 import './DebrisDetector.css';
+import GoogleMapWithHeatMap from './GoogleMaps';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main>
         <ImageUpload />
+        <GoogleMapWithHeatMap /> {/* Add the GoogleMap component */}
       </main>
     </div>
   );
