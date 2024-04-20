@@ -1,5 +1,4 @@
 
-
 body {
     margin: 0;
     padding: 0;
@@ -7,70 +6,68 @@ body {
     background-color: #ffffff; /* White background */
   }
   
-  .container {
+.container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white container background */
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     position: relative; /* Position relative for z-index */
     z-index: 1; /* Ensure container is above background */
-  }
-  
-  .header {
+}
+
+.header {
     text-align: center;
     margin-bottom: 40px;
-  }
-  
-  .header h1 {
+}
+
+.header h1 {
     font-size: 42px;
     color: #ffffff; /* Dark gray header text */
-  }
-  
-  .sub-header {
+}
+
+.sub-header {
     font-size: 20px;
     color: #ececec; /* Medium gray sub-header text */
     margin-bottom: 30px;
-  }
-  
-  .upload-section {
+}
+
+.upload-section {
     text-align: center;
-  }
-  
-  .upload-title {
+}
+
+.upload-title {
     font-size: 28px;
     font-weight: bold;
     color: #ffffff; /* Dark gray upload title text */
-    margin-bottom: 20px;
-  }
-  
-  .upload-btn {
-    padding: 12px 24px;
+    margin-bottom: 10px;
+}
+.upload-btn {
+    padding: 10px 20px; /* Decrease padding for less space */
+    margin-top: 40px; /* Increase margin to create more space between button and title */
     background-color: #000000; /* Black button color */
     color: #ffffff; /* White button text color */
     border: none;
-    border-radius: 3px; /* Adjust border-radius for a more square button */
+    border-radius: 30px; /* Make the button much rounder */
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
-  }
-  
-  .upload-btn:hover {
+}
+.upload-btn:hover {
     background-color: #333333; /* Darker shade on hover */
-  }
-  
-  .upload-icon {
+}
+
+.upload-icon {
     margin-right: 10px;
-  }
-  
-  .upload-input {
+}
+
+.upload-input {
     display: none;
-  }
-  
-  /* Style for the choose image button */
-  .choose-image-btn {
-    padding: 12px 24px;
+}
+
+.choose-image-btn {
+    padding: 10px 20px; /* Adjust padding as needed */
     background-color: #000000; /* Black button color */
     color: #ffffff; /* White button text color */
     border: none;
@@ -78,23 +75,23 @@ body {
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
-  }
-  
-  .choose-image-btn:hover {
+}
+
+.choose-image-btn:hover {
     background-color: #333333; /* Darker shade on hover */
-  }
-  
-  /* Cross pattern background */
-  body::before {
+}
+
+/* Cross pattern background */
+body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     background: 
       linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%),
       linear-gradient(to right, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.8) 100%);
     background-size: 40px 40px;
     z-index: -1; /* Ensure background is behind content */
-  }
+}
