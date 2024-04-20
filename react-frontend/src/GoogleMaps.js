@@ -6,7 +6,7 @@ function GoogleMapsWithHeatMap() {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyC0vlRjEjS_xWXZej31nH05s860YuZpETk&libraries=visualization`; // Replace YOUR_API_KEY with your Google Maps API key
+    script.src = `https://maps.googleapis.com/maps/api/js?key=&libraries=visualization`; // Replace YOUR_API_KEY with your Google Maps API key
     script.async = true;
 
     // Error handling for script loading

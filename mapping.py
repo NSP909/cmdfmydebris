@@ -12,13 +12,13 @@ def gen_coords(num: int) -> list[float,float]:
         coords.append([i[0].round(10), i[1].round(10)])
     return coords
 
-def grab_frames():
+def grab_frames(path):
      # Delete existing 'frames' folder if it exists
     if os.path.exists('frames/'):
             shutil.rmtree('frames/')
     os.mkdir('./frames/')
 
-    vidcap = cv2.VideoCapture('vid.mp4')
+    vidcap = cv2.VideoCapture(path)
     vidcap.set(cv2.CAP_PROP_FPS, 10)
     success,image = vidcap.read()
     count = 0

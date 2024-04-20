@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageUpload from './ImageUpload';
+import ImageUpload2 from './ImageUpload2';
 import './DebrisDetector.css';
 import GoogleMapWithHeatMap from './GoogleMaps';
 
@@ -10,7 +10,7 @@ function App() {
         <h1>Debris detector upload</h1>
       </header>
       <main>
-        <ImageUpload />
+        <ImageUpload2 />
         <GoogleMapWithHeatMap /> {/* Add the GoogleMap component */}
       </main>
     </div>

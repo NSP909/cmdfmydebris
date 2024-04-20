@@ -2,6 +2,8 @@ from pymongo import MongoClient
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from debris import generate_description
+from mapping import grab_frames
+import os
 import base64
 
 app = Flask(__name__)
@@ -15,17 +17,24 @@ cluster = MongoClient(uri)
 db = cluster['records']
 
 @app.route('/post-data', methods=['POST'])
-def process_image():
-    path = request.json
-    image_base = path['image_path']
-    image = base64.b64decode(image_base)
-    with open("./imageToSave.png", "wb") as fh:
-        fh.write(image)
-    output = generate_description(r"./imageToSave.png")
+def post_data():
+
+
+ file = request.files['file']
+ if file.filename.endswith('.mp4'):
+        # Do something with the uploaded mp4 file
+
+   upload_path = 'upload/video.mp4' 
+   file.save(upload_path)
+        # return send_file(upload_path, mimetype='video/mp4')
+   grab_frames(upload_path)
+   for image in os.listdir('./frames/'): 
+    path=os.path.join('./frames/',image)
+    output = generate_description(path)
     total=sum(output.values())
     print(total)
     output['totalz']=total
-    output['cood']=path['cood']
+    output['cood']="58.0738, 81.4733"
     print(output)
     
     # Ensure output is in the format suitable for MongoDB
