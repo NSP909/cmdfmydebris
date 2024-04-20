@@ -18,7 +18,9 @@ const HomePage = () => {
         <Link to="/search-rescue">
           <button className="search-rescue-btn">Search and Rescue</button>
         </Link>
-        <button className="debris-detector-btn">Debris Detector</button>
+        <Link to="/debris-detector">
+          <button className="debris-detector-btn">Debris Detector</button>
+        </Link>
       </section>
     </div>
   );

@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>React Image Upload</h1>
+        <h1>Search and rescue Upload</h1>
       </header>
       <main>
         <ImageUpload />
