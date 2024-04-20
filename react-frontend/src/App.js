@@ -11,6 +11,7 @@ function App() {
       <main>
         <ImageUpload />
       </main>
+      
     </div>
   );
 }
