@@ -7,9 +7,13 @@
     color: #ffffff;
     padding: 20px;
   }
+
+  p{
+    padding: 60px;
+  }
   
   header h1 {
-    font-size: 24px;
+    font-size: 48px;
   }
   
   .purpose-section {
@@ -17,12 +21,13 @@
   }
   
   .purpose-section h2 {
-    font-size: 40px;
+    padding: 20px;
+    font-size: 80px;
     color: #333333;
   }
   
   .purpose-section p {
-    font-size: 20px;
+    font-size: 30px;
     color: #666666;
   }
   
@@ -31,13 +36,13 @@
   }
   
   .buttons-section button {
-    padding: 10px 20px;
+    padding: 10px 70px;
     font-size: 18px;
     background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 5px;
-    margin: 0 10px;
+    margin: 0 150px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
