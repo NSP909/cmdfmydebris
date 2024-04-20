@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './HomePage.css';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -14,7 +15,9 @@ const HomePage = () => {
         <p>This is the purpose section. Describe the purpose of your website here.</p>
       </section>
       <section className="buttons-section">
-        <button className="search-rescue-btn">Search and Rescue</button>
+        <Link to="/search-rescue">
+          <button className="search-rescue-btn">Search and Rescue</button>
+        </Link>
         <button className="debris-detector-btn">Debris Detector</button>
       </section>
     </div>
