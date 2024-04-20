@@ -1,3 +1,4 @@
+
 import os
 import google.generativeai as genai
 import google.ai.generativelanguage as glm
@@ -19,7 +20,8 @@ strictly follow this format and print nothing else:
 {{"debris1": mass1, "debris2": mass2.....}}
 
 replace debris1, debris2 and so on with the type of debris detected
-estimate mass in kilograms and volume in cubic metres
+estimate mass in kilograms and volume in cubic metres. 
+
 """
 
 
@@ -34,7 +36,6 @@ def generate_description(image_path):
     response = model.generate_content([image, PROMPT]).text
     response = re.search(r"(```(json)?\n)?\{(.+)\}(\n```)?", response).group(3)
     print(response)
-    
     return ast.literal_eval(response)
 
 if __name__ == '__main__':
@@ -42,3 +43,4 @@ if __name__ == '__main__':
     quantity = generate_description(image_path)
     print(quantity)
     print(type(quantity))
+

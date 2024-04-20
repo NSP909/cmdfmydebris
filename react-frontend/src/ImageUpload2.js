@@ -29,7 +29,8 @@ const ImageUpload2 = () => {
 
       const blob = await response.blob();
       const video = URL.createObjectURL(blob);
-      videoRef.current = video;
+      console.log("Video URL:", video); // Add this line to check the video URL
+      videoRef.current.src = video; // Update this line to set src attribute directly
 
       setVideoUrl(video);
       setIsProcessing(false);

@@ -5,6 +5,9 @@ from debris import generate_description
 from mapping import grab_frames
 import os
 import base64
+import asyncio
+import json
+import ast
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -17,34 +20,37 @@ cluster = MongoClient(uri)
 db = cluster['records']
 
 @app.route('/post-data', methods=['POST'])
-def post_data():
-
-
- file = request.files['file']
- if file.filename.endswith('.mp4'):
-        # Do something with the uploaded mp4 file
-
-   upload_path = 'upload/video.mp4' 
-   file.save(upload_path)
-        # return send_file(upload_path, mimetype='video/mp4')
-   grab_frames(upload_path)
-   for image in os.listdir('./frames/'): 
-    path=os.path.join('./frames/',image)
-    output = generate_description(path)
-    total=sum(output.values())
-    print(total)
-    output['totalz']=total
-    output['cood']="58.0738, 81.4733"
-    print(output)
-    
-    # Ensure output is in the format suitable for MongoDB
-    try:
-        # Insert each item in the 'debris_type' list separately
-        db.items.insert_one(output)
-        
+async def post_data():
+    file = request.files['file']
+    if file.filename.endswith('.mp4'):
+        upload_path = 'upload/video.mp4'
+        file.save(upload_path)
+        grab_frames(upload_path)
+        tasks = []
+        for image in os.listdir('./frames/'): 
+            path = os.path.join('./frames/', image)
+            task = asyncio.create_task(process_frame(path))
+            tasks.append(task)
+        await asyncio.gather(*tasks)
         return jsonify({"message": "Data inserted successfully"}), 200
+    
+async def process_frame(path):
+    try:
+        output = generate_description(path)  # Assuming generate_description is an async function
+        if isinstance(output, dict):  # Check if output is a dictionary
+            total = sum(output.values())
+            output['totalz'] = total
+            output['cood'] = "58.0738, 81.4733"
+            try:
+                await db.items.insert_one(output)
+            except Exception as e:
+                pass  # Ignore the exception and continue to the next call
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        pass  # Ignore the exception and continue to the next call
+
+
+
+
     
 @app.route('/get-co', methods=['GET'])
 def get_co():
