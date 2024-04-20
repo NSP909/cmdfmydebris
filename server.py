@@ -2,6 +2,7 @@ from pymongo import MongoClient
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from debris import generate_description
+import base64
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -16,12 +17,15 @@ db = cluster['records']
 @app.route('/post-data', methods=['POST'])
 def process_image():
     path = request.json
-    image_path = path['image_path']
-    output = generate_description(image_path)
+    image_base = path['image_path']
+    image = base64.b64decode(image_base)
+    with open("./imageToSave.png", "wb") as fh:
+        fh.write(image)
+    output = generate_description(r"./imageToSave.png")
     total=sum(output.values())
     print(total)
     output['totalz']=total
-    output['cood']="56.0738, 80.27733"
+    output['cood']=path['cood']
     print(output)
     
     # Ensure output is in the format suitable for MongoDB

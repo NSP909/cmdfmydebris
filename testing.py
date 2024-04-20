@@ -7,7 +7,7 @@ image_path = r"C:\Users\sange\OneDrive\Desktop\bitcamp\hurricane.jpg"
 url = 'http://127.0.0.1:5000/post-data'  # Assuming Flask is running locally
 
 # Send a POST request to the Flask app with the image path
-response = requests.post(url, json={"image_path": image_path})
+response = requests.post(url, json={"image_path": image_path, "cood":"58.0738, 81.4733"})
 
 # Print the response from the Flask app
 print(response.json())
