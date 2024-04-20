@@ -50,42 +50,42 @@ const ImageUpload = () => {
     }
   };
 
-  const handleCoordinateChange = (e) => {
-    setCoordinates(e.target.value);
-  };
+  // const handleCoordinateChange = (e) => {
+  //   setCoordinates(e.target.value);
+  // };
 
-  const handleSubmit = async () => {
-    if (!image || !coordinates) {
-      console.error('Please upload an image and provide coordinates.');
-      return;
-    }
+  // const handleSubmit = async () => {
+  //   if (!image || !coordinates) {
+  //     console.error('Please upload an image and provide coordinates.');
+  //     return;
+  //   }
 
-    try {
-      const response = await fetch('http://127.0.0.1:5000/process-image', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ image, coordinates }),
-      });
+  //   try {
+  //     const response = await fetch('http://127.0.0.1:5000/process-image', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ image, coordinates }),
+  //     });
 
-      if (response.ok) {
-        console.log('Image uploaded and processed successfully.');
-        // Handle success
-      } else {
-        console.error('Failed to upload image:', response.statusText);
-        // Handle error
-      }
-    } catch (error) {
-      console.error('Error uploading image:', error.message);
-      // Handle error
-    }
-  };
+  //     if (response.ok) {
+  //       console.log('Image uploaded and processed successfully.');
+  //       // Handle success
+  //     } else {
+  //       console.error('Failed to upload image:', response.statusText);
+  //       // Handle error
+  //     }
+  //   } catch (error) {
+  //     console.error('Error uploading image:', error.message);
+  //     // Handle error
+  //   }
+  // };
 
   return (
     <div>
       <div className="empty"></div>
-      <div className="image-upload-container">
+      {/* <div className="image-upload-container">
         <h2 className="upload-title">Upload Your Image</h2>
         <div className="upload-input-container">
           <label htmlFor="upload-input" className="upload-label">
@@ -119,7 +119,7 @@ const ImageUpload = () => {
           </div>
         )}
         <button onClick={handleSubmit} className="submit-button">Submit</button>
-      </div>
+      </div> */}
     <div classname="empty">
      
 
