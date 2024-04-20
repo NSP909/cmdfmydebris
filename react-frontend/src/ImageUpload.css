@@ -1,0 +1,66 @@
+/* ImageUpload.css */
+
+.image-upload-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .upload-title {
+    margin-bottom: 30px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .upload-input-container {
+    margin-bottom: 50px;
+  }
+  
+  .upload-label {
+    display: inline-block;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .upload-label:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  }
+  
+  .upload-icon {
+    margin-right: 20px;
+  }
+  
+  .upload-input {
+    display: none;
+  }
+  
+  .image-preview {
+    margin-top: 50px;
+  }
+  
+  .preview-title {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .preview-image {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+  }
+  
+  

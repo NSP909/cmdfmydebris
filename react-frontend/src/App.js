@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageUpload from './ImageUpload';
+import './App.css';
 
 function App() {
   return (

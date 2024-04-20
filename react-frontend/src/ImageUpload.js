@@ -1,13 +1,15 @@
+// ImageUpload.js
+
 import React, { useState } from 'react';
+import './ImageUpload.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ImageUpload = () => {
   const [image, setImage] = useState(null);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    // You can add validation for file type, size, etc. here if needed
-
-    // Convert the selected file to a data URL
     const reader = new FileReader();
     reader.onloadend = () => {
       setImage(reader.result);
@@ -16,13 +18,25 @@ const ImageUpload = () => {
   };
 
   return (
-    <div>
-      <h2>Image Upload</h2>
-      <input type="file" accept="image/*" onChange={handleImageChange} />
+    <div className="image-upload-container">
+      <h2 className="upload-title">Upload Your Image</h2>
+      <div className="upload-input-container">
+        <label htmlFor="upload-input" className="upload-label">
+          <input
+            type="file"
+            accept="image/*"
+            id="upload-input"
+            onChange={handleImageChange}
+            className="upload-input"
+          />
+          <FontAwesomeIcon icon={faCloudUploadAlt} className="upload-icon" />
+          Choose Image
+        </label>
+      </div>
       {image && (
-        <div>
-          <h3>Preview</h3>
-          <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} />
+        <div className="image-preview">
+          <h3 className="preview-title">Preview</h3>
+          <img src={image} alt="Uploaded" className="preview-image" />
         </div>
       )}
     </div>
