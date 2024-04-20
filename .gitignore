@@ -1,0 +1,7 @@
+.env
+.venv
+vid.mp4
+frames
+result
+.DS_Store
+upload/

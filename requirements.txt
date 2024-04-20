@@ -1,2 +1,8 @@
 flask
 flask_cors
+opencv-python
+# azure-cognitiveservices-vision-computervision
+pillow
+# google-cloud-vision
+ultralytics
+cv2

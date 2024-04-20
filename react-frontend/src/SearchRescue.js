@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Debris detector upload</h1>
+        <h1>Search&Rescue upload</h1>
       </header>
       <main>
         <ImageUpload />
