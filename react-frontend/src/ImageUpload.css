@@ -1,42 +1,59 @@
 /* ImageUpload.css */
 
 /* Container */
-.image-upload-container {
-    max-width: 600px;
+.empty{
+    max-width: 13x;
     margin: 0 auto;
-    padding: 70px;
+    padding: 100px;
     background-color: #1e1e3c; /* Dark blue background */
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 200px;
+    box-shadow: 0 9px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
+    align-items: center; 
+    padding: 60px;
+    margin: 200px;
+}
+.image-upload-container {
+
+    max-width: 13x;
+    margin: 100px;
+    padding: 100px;
+    background-color: #1e1e3c; /* Dark blue background */
+    border-radius: 200px;
+    box-shadow: 0 9px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 60px;
+    /* Center horizontally */
   }
   
   /* Title */
   .upload-title {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #b70d0d; /* Red color */
     font-size: 32px;
     font-weight: bold;
     text-align: center;
   }
   
-  /* Upload button */
-  .upload-label {
+ /* Upload button */
+.upload-label {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 20px; /* Decrease padding for a smaller button */
     background-color: #b70d0d; /* Red button color */
     color: #ffffff; /* White text color */
     border: 2px solid #b70d0d; /* Red border */
-    border-radius: 25px;
+    border-radius: 20px; /* Smaller border-radius for a less round button */
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 18px;
+    font-size: 16px; /* Decrease font size for smaller text */
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 20px; /* Move button down */
-  }
+    margin-top: 20px; /* Increase margin-top for space between button and title */
+}
+
   
   .upload-label:hover {
     background-color: transparent; /* Transparent background on hover */
@@ -44,6 +61,6 @@
   }
   
   .upload-icon {
-    margin-right: 10px;
+    margin-right: 50px;
   }
   

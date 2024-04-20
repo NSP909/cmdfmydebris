@@ -18,6 +18,14 @@ const ImageUpload = () => {
   };
 
   return (
+    <div>
+    <div classname="empty">
+     
+
+
+
+     
+    </div>
     <div className="image-upload-container">
       <h2 className="upload-title">Upload Your Image</h2>
       <div className="upload-input-container">
@@ -39,6 +47,7 @@ const ImageUpload = () => {
           <img src={image} alt="Uploaded" className="preview-image" />
         </div>
       )}
+    </div>
     </div>
   );
 };
