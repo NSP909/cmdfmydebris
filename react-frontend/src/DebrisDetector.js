@@ -6,13 +6,10 @@ import GoogleMapWithHeatMap from './GoogleMaps';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Debris detector upload</h1>
-      </header>
-      <main>
+      <div className = 'bg-white dark:bg-gray-900 mt-[10vh] h-[100vh]'>
         <ImageUpload2 />
         <GoogleMapWithHeatMap /> {/* Add the GoogleMap component */}
-      </main>
+      </div>
     </div>
   );
 }
