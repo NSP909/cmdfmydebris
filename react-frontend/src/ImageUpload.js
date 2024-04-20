@@ -1,15 +1,13 @@
 // ImageUpload.js
 
-import React, { useState, useRef} from 'react';
-import './ImageUpload.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useRef } from "react";
+import "./ImageUpload.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloudUploadAlt } from "@fortawesome/free-solid-svg-icons";
 
 const ImageUpload = () => {
-  const [image, setImage] = useState(null);
   const videoRef = useRef(null);
   const [videoUrl, setVideoUrl] = useState(null);
-  const [isProcessing, setIsProcessing] = useState(false);
   const [fileName, setFileName] = useState("");
 
   const handleVideoChange = async (e) => {
@@ -18,7 +16,6 @@ const ImageUpload = () => {
 
     console.log("Uploading video", file);
 
-    setIsProcessing(true);
     const formData = new FormData();
     formData.append("file", file);
     try {
@@ -33,129 +30,63 @@ const ImageUpload = () => {
       }
 
       // Assuming the API response contains the URL of the uploaded video
-      console.log(response)
+      console.log(response);
       const blob = await response.blob();
       const video = URL.createObjectURL(blob);
       videoRef.current = video;
-      console.log(videoRef.current)
+      console.log(videoRef.current);
 
       // Update the state with the video URL
       setVideoUrl(video);
-
-      setIsProcessing(false);
     } catch (error) {
       console.error("Error uploading video:", error);
       // Handle error state here (if needed)
-      setIsProcessing(false);
     }
   };
-
-  // const handleCoordinateChange = (e) => {
-  //   setCoordinates(e.target.value);
-  // };
-
-  // const handleSubmit = async () => {
-  //   if (!image || !coordinates) {
-  //     console.error('Please upload an image and provide coordinates.');
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch('http://127.0.0.1:5000/process-image', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ image, coordinates }),
-  //     });
-
-  //     if (response.ok) {
-  //       console.log('Image uploaded and processed successfully.');
-  //       // Handle success
-  //     } else {
-  //       console.error('Failed to upload image:', response.statusText);
-  //       // Handle error
-  //     }
-  //   } catch (error) {
-  //     console.error('Error uploading image:', error.message);
-  //     // Handle error
-  //   }
-  // };
-
   return (
     <div>
-      <div className="empty"></div>
-      {/* <div className="image-upload-container">
-        <h2 className="upload-title">Upload Your Image</h2>
-        <div className="upload-input-container">
-          <label htmlFor="upload-input" className="upload-label">
+      <div className="flex flex-col justify-center items-center pt-[10vh]">
+        <p className="text-4xl font-extrabold leading-none tracking-tight dark:text-white mb-10">
+          Search and Rescue
+        </p>
+        <p className="text-center max-w-[40vw] mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+          Upload a video file here. The video is processed to flag any frames
+          with people in it. Please wait for a few seconds for the video to
+          process.
+        </p>
+        <div className="upload-input-container mt-10">
+          <label
+            htmlFor="vid"
+            className="flex items-center justify-center text-white h-[8vh] w-[20vw] bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-lg text-2xl dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer"
+          >
+            <FontAwesomeIcon
+              icon={faCloudUploadAlt}
+              className="upload-icon mr-2"
+            />
+            Upload Video
             <input
               type="file"
-              accept="image/*"
-              id="upload-input"
-              onChange={handleImageChange}
-              className="upload-input"
-            />
-            <FontAwesomeIcon icon={faCloudUploadAlt} className="upload-icon" />
-            Choose Image
-          </label>
-        </div>
-        <div className="coordinate-input-container">
-          <label htmlFor="coordinate-input" className="coordinate-label">
-            Coordinates:
-            <input
-              type="text"
-              id="coordinate-input"
-              value={coordinates}
-              onChange={handleCoordinateChange}
-              className="coordinate-input"
+              name="vid"
+              accept="image/*,video/*"
+              id="vid"
+              onChange={handleVideoChange}
+              className="hidden"
+              required
             />
           </label>
         </div>
-        {image && (
-          <div className="image-preview">
-            <h3 className="preview-title">Preview</h3>
-            <img src={`data:image/jpeg;base64,${image}`} alt="Uploaded" className="preview-image" />
+        {fileName && (
+          <p className="mt-4 text-gray-500 dark:text-gray-400">CHOSEN FILE: {fileName}</p>
+        )}
+        {videoUrl && (
+          <div className="flex flex-col justify-center items-center mt-10">
+          <video ref={videoRef} controls className="max-w-[35vw] max-h-[40vh]">
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           </div>
         )}
-        <button onClick={handleSubmit} className="submit-button">Submit</button>
-      </div> */}
-    <div classname="empty">
-     
-
-
-
-     
-    </div>
-    <div className="image-upload-container">
-      <h2 className="upload-title">Upload Your Image</h2>
-      <div className="upload-input-container">
-        <label htmlFor="upload-input" className="upload-label">
-          <input
-            type="file"
-            
-            accept="image/*,video/*"
-            id="upload-input"
-            onChange={handleVideoChange}
-            className="upload-input"
-          />
-          <FontAwesomeIcon icon={faCloudUploadAlt} className="upload-icon" />
-          Choose Image
-        </label>
       </div>
-      {/* {videoUrl && (
-        <div className="image-preview">
-          <h3 className="preview-title">Preview</h3>
-            <video src={videoUrl} controls className="preview-image" />
-        </div>
-      )} */}
-      {videoUrl && (
-        <video ref={videoRef} controls className="w-[80%] h-auto">
-          <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      )}
-    </div>
     </div>
   );
 };

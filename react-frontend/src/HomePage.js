@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <div>
-      <section className="bg-white dark:bg-gray-900 h-[100vh]">
-        <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28 mb-10">
+      <section className="bg-white dark:bg-gray-900 h-[92vh]">
+        <div className="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28 mb-10 mt-[8vh]">
           <div className="mr-auto place-self-center lg:col-span-7 ">
             <h1 className="max-w-2xl text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white mb-10">
               Our Purpose
