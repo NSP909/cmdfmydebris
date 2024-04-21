@@ -75,7 +75,7 @@ def generate_report(totents):
         I will also give you vo ordinates os you can figure out the location. Now based on this information create a \
             detailed disaster report and be sure to include financial information\
                  Make sure that you are responding in paragraphs and not using any tables or lists as this will be a paragraph reply.\
-                    Don't mention things that you don't know"
+                    Don't mention things that you don't know."
                 
     
     # Generate the report
