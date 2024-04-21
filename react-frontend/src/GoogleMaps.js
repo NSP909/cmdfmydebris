@@ -6,28 +6,27 @@ function GoogleMapsWithHeatMap() {
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src =
-      `https://maps.googleapis.com/maps/api/js?key=` +
-      apiKey +
-      `&libraries=visualization`; // Replace YOUR_API_KEY with your Google Maps API key
-    script.async = true;
+    if (!window.google) {
+      const script = document.createElement("script");
+      script.src =
+        `https://maps.googleapis.com/maps/api/js?key=` +
+        apiKey +
+        `&libraries=visualization&async=true`; // Add async attribute
+      script.onload = () => {
+        setScriptLoaded(true);
+      };
+      script.onerror = (error) => {
+        console.error("Error loading Google Maps API:", error);
+      };
+      document.body.appendChild(script);
 
-    // Error handling for script loading
-    script.onerror = (error) => {
-      console.error("Error loading Google Maps API:", error);
-    };
-
-    script.onload = () => {
+      // Cleanup function to remove the script when the component unmounts
+      return () => {
+        document.body.removeChild(script);
+      };
+    } else {
       setScriptLoaded(true);
-    };
-
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script when the component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
+    }
   }, []);
 
   useEffect(() => {
@@ -47,31 +46,28 @@ function GoogleMapsWithHeatMap() {
             }
           );
 
-          if (window.google) {
-            const google = window.google;
-            const map = new google.maps.Map(mapRef.current, {
-              center: { lat: 39.21671937147964, lng: -76.50911414889384 },
-              zoom: 14,
-              mapTypeId: google.maps.MapTypeId.SATELLITE, // Set default map type to satellite
-            });
-        
+          const google = window.google;
+          const map = new google.maps.Map(mapRef.current, {
+            center: { lat: 39.21671937147964, lng: -76.50911414889384 },
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.SATELLITE,
+          });
 
-            const heatmap = new google.maps.visualization.HeatmapLayer({
-              data: heatmapData,
-              map: map,
-              gradient: ["rgba(255,255,20 , 0)", "rgba(255, 0, 20, 1)"], // Change the gradient to red
-              radius: 50, // Increase the radius of each heatmap point
-              opacity: 1, // Increase the opacity to make the heatmap more prominent
-            });
-          }
+          const heatmap = new google.maps.visualization.HeatmapLayer({
+            data: heatmapData,
+            map: map,
+            gradient: ["rgba(255,20,20 , 0)", "rgba(255, 0, 20, 1)"],
+            radius: 50,
+            opacity: 1,
+          });
         })
         .catch((error) => {
           console.error("Error fetching heatmap data:", error);
         });
     }
   }, [scriptLoaded]);
- 
-  return <div ref={mapRef} style={{ width: "100%", height: "500px" }} />;
+
+  return <div ref={mapRef} style={{ width: "40%", height: "453px" }} />;
 }
 
 export default GoogleMapsWithHeatMap;

@@ -25,6 +25,7 @@ uri = "mongodb+srv://ayushroy9711:ASiWwy7yhyYMLFss@cluster0.2gchnja.mongodb.net/
 # Establishing connection to MongoDB
 cluster = MongoClient(uri)
 db = cluster['records']
+db.items.insert_one({"concrete": 10000, "wood": 5000, "metal": 3000, "glass": 2000, "cood": "39.20338528137422, -76.53489205723363"})
 
 @app.route('/post-data', methods=['POST'])
 async def post_data():

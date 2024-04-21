@@ -17,17 +17,15 @@ def count_files_in_folder(folder_path):
     files = os.listdir(folder_path)
     num_files = len(files)
     return num_files
-def rand_coords():
-    xuplim = 39.232301
-    yuplim = -76.502078
-    xlowlim = 39.202423
-    ylowlim = -76.557055
-    i=0
 
+def rand_coords():
+    x = [39.214508, 39.220360, 39.225546, 39.219030, 39.217035]
+    y = [-76.529479, -76.526301, -76.517626, -76.520546, -76.533000, -76.524240]
     
-    temp_tuple =(random.uniform(xlowlim,xuplim),random.uniform(ylowlim,yuplim))
-    ss= ', '.join(map(str, temp_tuple))
+    temp_tuple = (random.choice(x), random.choice(y))
+    ss = ', '.join(map(str, temp_tuple))
     return ss
+
 def grab_frames(path):
      # Delete existing 'frames' folder if it exists
     if os.path.exists('frames/'):

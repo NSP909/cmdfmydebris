@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Report.css'; // Import the CSS file
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 function ReportComponent() {
     const [report, setReport] = useState('');
@@ -24,8 +26,9 @@ function ReportComponent() {
     }, []);
 
     return (
-        <div className="report-container">
-            <h2 className="report-heading">Report</h2>
+        <div className="bg-purple-700 hover:bg-purple-700 w-700 h-70">
+            <h2 className="report-heading"> 
+              Report</h2>
             {/* Display the report content inside a textarea */}
             <textarea
                 className="report-textarea"

@@ -61,18 +61,18 @@ const ImageUpload2 = () => {
   };
   return (
     <div>
-      <div className="flex flex-col justify-center items-center pt-[10vh]">
+      <div className="flex flex-col justify-center items-center pt-[3vh]">
         <p className="text-4xl font-extrabold leading-none tracking-tight dark:text-white mb-10">
           Debris Detector
         </p>
-        <p className="text-center max-w-[55vw] mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+        <p className="text-center max-w-[55vw]  font-light text-gray-500  md:text-lg lg:text-xl dark:text-gray-400">
           Upload a video file here. The video quantifies damage in the video. It is assumed that the video is real-time feed from a rescue/recon drone. We also assume that real-time spacial cooridnates are available. Please wait for a few seconds for the video to
           process.
         </p>
         <div className="upload-input-container mt-10">
           <label
             htmlFor="vid"
-            className="flex items-center justify-center text-white h-[8vh] w-[20vw] bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-lg text-2xl dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer"
+            className="flex items-center justify-center text-white h-[8vh] w-[20vw] bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 rounded-lg text-2xl dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer m-8"
           >
             <FontAwesomeIcon
               icon={faCloudUploadAlt}
