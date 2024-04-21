@@ -67,33 +67,8 @@ def detect_person(video_path:str):
 def test_only_person(path: str):
     model = YOLO("yolov8n.pt")
     # Change the argument to 0 for webcam
-    results = model.predict(source="0", classes = 0, show= True)
-    # while True:
-    #     # Read a frame from the webcam
-    #     success, frame = cap.read()
-    #     if not success:
-    #         break
-    #     # Run YOLOv8 inference on the frame
-    #     results = model(frame, show= True,classes=0)
-        
-    #     # Display the results
-    #     # for box in results[0].boxes:
-    #     #     if box.cls == 0:
-    #     #         x1, y1, x2, y2 = box.xyxy
-    #     #         cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 2)
-    #     #         label = f"Person: {box.conf:.2f}"
-    #     #         cv2.putText(frame, label, (int(x1), int(y1) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-        
-    #     # Display the frame
-    #     cv2.imshow("YOLO Webcam", frame)
-        
-    #     # Exit if 'q' is pressed
-    #     if cv2.waitKey(1) & 0xFF == ord('q'):
-    #         break
-    
-    # # Release the webcam and close windows
-    # cap.release()
-    # cv2.destroyAllWindows()
+    results = model.predict(source=path, classes = 0, show= False, save_dir="result")
+    print(len(results))
 
 if __name__ == '__main__':
     test_only_person("upload/video.mp4")
