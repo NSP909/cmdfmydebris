@@ -11,12 +11,13 @@ const HomePage = () => {
               Our Purpose
             </h1>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              The purpose of this website is to show our invention of how we can
-              help those in natural disaster situations. With the use of drone
-              footage, we can see who is affected and find ways to help them. At
-              the same time, we are also able to identify the type of debris
-              and how much of the debris is present at the site of the disaster
-              in order to come up with solutions to fix this issue.
+            Our product serves the crucial function of assisting search and rescue personnel in locating individuals stranded in hazardous situations. By analyzing the debris within the area, we meticulously create comprehensive maps and databases, providing a detailed report of the surroundings. Moreover, our software facilitates the examination of structures, enabling the identification of deformities and structural damages.
+
+
+
+
+
+<area shape="" coords="" href="" alt="" />
             </p>
           </div>
         </div>
