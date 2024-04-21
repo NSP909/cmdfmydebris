@@ -1,7 +1,7 @@
 import React from 'react';
-import ImageUpload2 from './ImageUpload2';
+import ImageUpload3 from './ImageUpload3';
 import './House.css';
-import GoogleMapWithHeatMap from './GoogleMaps';
+
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
         <h1>House Structural Damage Assessment</h1>
       </header>
       <main>
-        <ImageUpload2 />
-        <GoogleMapWithHeatMap /> {/* Add the GoogleMap component */}
+        <ImageUpload3 />
+  
       </main>
     </div>
   );

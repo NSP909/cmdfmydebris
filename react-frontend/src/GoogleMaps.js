@@ -50,16 +50,19 @@ function GoogleMapsWithHeatMap() {
           if (window.google) {
             const google = window.google;
             const map = new google.maps.Map(mapRef.current, {
-              center: { lat: 40.7128, lng: -74.006 },
-              zoom: 10,
+              center: { lat: 39.21671937147964, lng: -76.50911414889384 },
+              zoom: 14,
+              mapTypeId: google.maps.MapTypeId.SATELLITE, // Set default map type to satellite
             });
+        
 
             const heatmap = new google.maps.visualization.HeatmapLayer({
               data: heatmapData,
               map: map,
+              gradient: ["rgba(255,255,20 , 0)", "rgba(255, 0, 20, 1)"], // Change the gradient to red
+              radius: 50, // Increase the radius of each heatmap point
+              opacity: 1, // Increase the opacity to make the heatmap more prominent
             });
-
-            heatmap.set("radius", 20); // Adjust the radius of each heatmap point
           }
         })
         .catch((error) => {

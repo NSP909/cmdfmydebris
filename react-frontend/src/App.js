@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchRescue from './SearchRescue'
 import HomePage from './HomePage';
 import DebrisDetector from './DebrisDetector';
-// import House from './House';
+import House from './House';
 import Header from './Header';
 import './App.css';
 
@@ -16,6 +16,7 @@ function App() {
           <Route path="/search-rescue" element={<SearchRescue />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/debris-detector" element={<DebrisDetector/>} />
+          <Route path="/house" element={<House/>} />
           {/* <Route path="/house" element={<House/>}/> */}
         </Routes>
       </div>

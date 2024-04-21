@@ -1,9 +1,11 @@
+from tkinter import Image
 from pymongo import MongoClient
 from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
-from debris import generate_description
+from debris import generate_description, generate_report, detect_damage
 from mapping import grab_frames
 from yolo import detect_person
+from mapping import rand_coords
 import os
 import base64
 import asyncio
@@ -11,6 +13,7 @@ import json
 import ast
 from dotenv import load_dotenv
 
+import PIL
 load_dotenv()
 
 app = Flask(__name__)
@@ -44,7 +47,8 @@ async def process_frame(path):
         if isinstance(output, dict):  # Check if output is a dictionary
             total = sum(output.values())
             output['totalz'] = total
-            output['cood'] = "58.0738, 81.4733"
+            output['cood'] = rand_coords()
+            print(output['cood'])
             try:
                 await db.items.insert_one(output)
             except Exception as e:
@@ -71,6 +75,39 @@ def get_co():
         if 'cood' and 'totalz' in result:
             d[result['totalz']/total]=result['cood']
     return jsonify(d)
+
+@app.route('/get-report', methods=['GET'])
+def get_report():
+    data = db.items.find()  # Querying 'calories' collection
+    results = [calorie for calorie in data]# Convert cursor to a list of dictionaries
+    lmaoz=results
+    if not results:
+        return jsonify({"message": "No data found"})
+    total=0
+    d={}
+    for result in results:
+        result['_id'] = str(result['_id'])
+        if 'totalz' in result:
+            total+=result['totalz']
+            
+    for result in results:
+        if 'cood' and 'totalz' in result:
+            d[result['totalz']/total]=result['cood']
+      
+    out= generate_report(lmaoz)
+
+    return out
+
+@app.route('/get-house', methods=['POST'])
+def get_house():
+     
+     file = request.files['file']
+     upload_path = 'upload/image.png'
+     file.save(upload_path)
+     out = detect_damage(upload_path)
+     return out
+  
+
 
 @app.route('/detect-person', methods=['POST'])
 def person_detection():

@@ -18,19 +18,16 @@ def count_files_in_folder(folder_path):
     num_files = len(files)
     return num_files
 def rand_coords():
-    num = count_files_in_folder("ENTER PATH HERE")
     xuplim = 39.232301
     yuplim = -76.502078
     xlowlim = 39.202423
     ylowlim = -76.557055
     i=0
-    coords = []
-    while(i<num):
-        temp_tuple =(random.uniform(xlowlim,xuplim),random.uniform(ylowlim,yuplim))
-        coords.append(temp_tuple)
-        i+=1
-    return coords
 
+    
+    temp_tuple =(random.uniform(xlowlim,xuplim),random.uniform(ylowlim,yuplim))
+    ss= ', '.join(map(str, temp_tuple))
+    return ss
 def grab_frames(path):
      # Delete existing 'frames' folder if it exists
     if os.path.exists('frames/'):

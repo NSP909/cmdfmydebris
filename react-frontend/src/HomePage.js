@@ -27,6 +27,9 @@ const HomePage = () => {
         <Link to="/debris-detector">
           <button className="download-btn">Debris Detector</button>
         </Link>
+        <Link to="/house">
+          <button className="download-btn">Damage Analysis</button>
+        </Link>
       </div>
       </section>
     </div>
