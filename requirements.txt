@@ -5,5 +5,4 @@ opencv-python
 pillow
 # google-cloud-vision
 ultralytics
-cv2
 google.generativeai

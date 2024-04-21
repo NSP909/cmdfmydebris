@@ -5,3 +5,4 @@ frames
 result
 .DS_Store
 upload/
+react-frontend/src/apiKey.js

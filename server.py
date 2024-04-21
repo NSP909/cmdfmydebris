@@ -9,6 +9,9 @@ import base64
 import asyncio
 import json
 import ast
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, origins='*')
@@ -48,9 +51,6 @@ async def process_frame(path):
                 pass  # Ignore the exception and continue to the next call
     except Exception as e:
         pass  # Ignore the exception and continue to the next call
-
-
-
 
     
 @app.route('/get-co', methods=['GET'])
