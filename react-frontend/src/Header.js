@@ -7,7 +7,7 @@ const Header = () => {
       <nav className="border-gray-200 py-2.5">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
           <Link to="/" className="flex items-center">
-            <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">YOLORelief</span>
+            <span className="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">ResQVision</span>
           </Link>
           <div className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
             <ul className="flex flex-col mt-4 text-xl font-medium lg:flex-row lg:space-x-8 lg:mt-0">
