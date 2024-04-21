@@ -18,6 +18,7 @@ const ImageUpload3 = () => {
     setImageUrl(URL.createObjectURL(file));
     const formData = new FormData();
     formData.append("file", file);
+    setResult(null)
     try {
       const response = await fetch("http://127.0.0.1:5000/get-house", {
         method: "POST",

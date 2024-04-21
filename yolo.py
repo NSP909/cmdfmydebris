@@ -67,7 +67,7 @@ def detect_person(video_path:str):
     cv2.destroyAllWindows()
 
 def test_only_person(path: str):
-    model = YOLO("yolov8n.pt")
+    model = YOLO("yolov8l.pt")
     folder_path = "xxx"
 
     # Get the list of files and subdirectories inside the folder
@@ -85,13 +85,13 @@ def test_only_person(path: str):
 
     print("Contents inside the folder 'xxx' have been removed.")
     # Change the argument to 0 for webcam
-    results = model.predict(source=path, classes = 0, save=True, show= True, project="xxx", name="yyy", device = "cpu")
+    results = model.predict(source=path, classes = 0, save=True, show= True, project="xxx", name="yyy")
     convert_avi_to_mp4()
     return results
 
 def convert_avi_to_mp4():
     # Construct the output file path
-    input_path = r'C:\Users\sange\OneDrive\Desktop\bitcamp\cmdfmydebris\xxx\yyy\video.avi'
+    input_path = r'C:\Users\tripa\Desktop\project\cmdfmydebris\xxx\yyy\video.avi'
     output_name = 'xxx/yyy/video.mp4'
     ffmpeg.input(input_path).output(output_name).run()
     
