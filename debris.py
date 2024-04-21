@@ -45,7 +45,7 @@ def generate_description(image_path):
 def detect_damage(image_path):
     load_dotenv()
     GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-    prempt="You are a damage detection bot and your main work is to analyse buildings and houses to see if there is any damage, weatheing or structural issues or infections"
+    prempt="You are a damage detection bot and your main work is to analyse buildings and houses to see if there is any damage, weatheing or structural issues or infections. Give a detailed report and do not talk in first person and do not include address or date"
     genai.configure(api_key=GOOGLE_API_KEY)
     model = genai.GenerativeModel("gemini-pro-vision")
     image = Image.open(image_path)
@@ -72,10 +72,10 @@ def generate_report(totents):
     
     prompt = " You are a disaster management bot that creates reports. \
         I will provide you with the type of debris present and quantity of each debris present in kilograms as key value pairs. \
-        I will also give you vo ordinates os you can figure out the location. Now based on this information create a \
-            detailed disaster report and be sure to include financial information\
+        I will also give you co ordinates os you can figure out the location. Now based on this information create a \
+            detailed disaster report and be sure to include financial information. Include how much it will cost to rebuild and how much destruction has taken place\
                  Make sure that you are responding in paragraphs and not using any tables or lists as this will be a paragraph reply.\
-                    Don't mention things that you don't know."
+                    Don't mention things that you don't know. Give big financial numbers like 2 billion dollars for reconstruction and 400 million for removal of debris"
                 
     
     # Generate the report

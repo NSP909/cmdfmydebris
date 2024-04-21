@@ -29,7 +29,7 @@ const HomePage = () => {
           <button className="download-btn">Debris Analysis</button>
         </Link>
         <Link to="/house">
-          <button className="download-btn">Structure Analysis</button>
+          <button className="download-btn">Structural Analysis</button>
         </Link>
       </div>
       </section>
