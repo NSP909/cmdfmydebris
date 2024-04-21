@@ -80,7 +80,6 @@ def person_detection():
     file = request.files['file']
     if file.filename.endswith('.mp4'):
         # Do something with the uploaded mp4 file
-
         upload_path = 'upload/video.mp4'
         file.save(upload_path)
         # return send_file(upload_path, mimetype='video/mp4')
@@ -91,4 +90,4 @@ def person_detection():
         return 'Invalid file format. Only mp4 files are allowed', 400
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
