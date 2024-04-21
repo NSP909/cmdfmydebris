@@ -20,7 +20,7 @@ const HomePage = () => {
             </p>
           </div>
         </div>
-      <div className="flex flex-row justify-center gap-80 items-center">
+      <div className="flex flex-row justify-center gap-20 items-center">
         <Link to="/search-rescue">
           <button className="w-[20vw] h-[5vh] download-btn">Search and Rescue</button>
         </Link>

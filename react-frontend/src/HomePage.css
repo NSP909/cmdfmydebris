@@ -8,6 +8,7 @@ header {
   padding: 20px;
 }
 
+
 p{
   padding: 60px;
 }
@@ -49,4 +50,10 @@ header h1 {
 
 .buttons-section button:hover {
   background-color: #0056b3;
+}
+
+.download-btn {
+  margin: 1px;
+  padding: 1px;
+  border: 0px ;/* Adjust this value to decrease the margin */
 }
