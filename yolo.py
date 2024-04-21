@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 import cv2
 import torch
+import os
 
 # Load a model
 def create_model(dataset: str = "coco8.yaml"):
@@ -66,9 +67,26 @@ def detect_person(video_path:str):
 
 def test_only_person(path: str):
     model = YOLO("yolov8n.pt")
+    folder_path = "xxx"
+
+    # Get the list of files and subdirectories inside the folder
+    file_list = os.listdir(folder_path)
+
+    # Iterate over the files and subdirectories
+    for file_name in file_list:
+        file_path = os.path.join(folder_path, file_name)
+        
+        # Check if the path is a file
+        if os.path.isfile(file_path):
+            os.remove(file_path)  # Remove the file
+        else:
+            os.rmdir(file_path)  # Remove the subdirectory
+
+    print("Contents inside the folder 'xxx' have been removed.")
     # Change the argument to 0 for webcam
     results = model.predict(source=path, classes = 0, save=True, show= True, project="xxx", name="yyy")
     return results
+   
 
 if __name__ == '__main__':
     test_only_person("upload/video.mp4")
