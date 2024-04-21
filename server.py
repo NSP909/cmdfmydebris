@@ -122,9 +122,8 @@ def person_detection():
         file.save(upload_path)
         # return send_file(upload_path, mimetype='video/mp4')
         # detect_person(upload_path)
-        try:test_only_person(upload_path)
-        except: pass
-        video_path = 'runs/detect/result/video.mp4'
+        test_only_person(upload_path)
+        video_path = 'xxx/yyy/video.mp4'
         return send_file(video_path, mimetype='video/mp4')
     else:
         return 'Invalid file format. Only mp4 files are allowed', 400

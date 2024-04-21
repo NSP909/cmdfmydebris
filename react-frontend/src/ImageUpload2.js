@@ -93,14 +93,14 @@ const ImageUpload2 = () => {
         {fileName && (
           <p className="mt-4 text-gray-500 dark:text-gray-400">CHOSEN FILE: {fileName}</p>
         )}
-        {videoUrl && (
+        {/* {videoUrl && (
           <div className="flex flex-col justify-center items-center mt-10">
           <video ref={videoRef} controls className="max-w-[35vw] max-h-[40vh]">
             <source src={videoUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

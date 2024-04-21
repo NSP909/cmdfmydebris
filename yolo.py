@@ -6,7 +6,8 @@ from PIL import Image
 import cv2
 import torch
 import os
-
+import shutil
+import ffmpeg
 # Load a model
 def create_model(dataset: str = "coco8.yaml"):
     # model = YOLO("yolov8l.yaml")  # build a new model from scratch
@@ -80,15 +81,21 @@ def test_only_person(path: str):
         if os.path.isfile(file_path):
             os.remove(file_path)  # Remove the file
         else:
-            os.rmdir(file_path)  # Remove the subdirectory
+            shutil.rmtree(file_path) # Remove the subdirectory
 
     print("Contents inside the folder 'xxx' have been removed.")
     # Change the argument to 0 for webcam
-    results = model.predict(source=path, classes = 0, save=True, show= True, project="xxx", name="yyy")
+    results = model.predict(source=path, classes = 0, save=True, show= True, project="xxx", name="yyy", device = "cpu")
+    convert_avi_to_mp4()
     return results
-   
 
+def convert_avi_to_mp4():
+    # Construct the output file path
+    input_path = r'C:\Users\sange\OneDrive\Desktop\bitcamp\cmdfmydebris\xxx\yyy\video.avi'
+    output_name = 'xxx/yyy/video.mp4'
+    ffmpeg.input(input_path).output(output_name).run()
+    
 if __name__ == '__main__':
-    test_only_person("upload/video.mp4")
-    # detect_person("upload/video.mp4")
-    # create_model("coco8.yaml")
+    convert_avi_to_mp4()
+    # test_only_person("upload/video.mp4")
+# Example usage:
