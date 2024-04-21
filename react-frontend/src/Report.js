@@ -26,8 +26,8 @@ function ReportComponent() {
     }, []);
 
     return (
-        <div className="bg-purple-700 hover:bg-purple-700 w-700 h-70">
-            <h2 className="report-heading"> 
+        <div className=" bg-purple-600 w-700 h-70">
+            <h2 className="report-heading mt-1"> 
               Report</h2>
             {/* Display the report content inside a textarea */}
             <textarea
