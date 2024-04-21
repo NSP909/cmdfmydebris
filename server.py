@@ -127,4 +127,4 @@ def person_detection():
         return 'Invalid file format. Only mp4 files are allowed', 400
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

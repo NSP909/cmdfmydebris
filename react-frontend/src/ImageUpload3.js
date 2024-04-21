@@ -15,6 +15,7 @@ const ImageUpload3 = () => {
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     console.log("Uploading image", file);
+    setImageUrl(URL.createObjectURL(file));
     const formData = new FormData();
     formData.append("file", file);
     try {
@@ -26,7 +27,6 @@ const ImageUpload3 = () => {
         throw new Error("Failed to upload image");
       }
       const data = await response.json();
-      setImageUrl(URL.createObjectURL(file));
       setResult(data);
       setError(null);
     } catch (error) {
@@ -47,7 +47,7 @@ const ImageUpload3 = () => {
     <div>
       <div className="flex flex-col justify-center items-center pt-[10vh]">
         <p className="text-4xl font-extrabold leading-none tracking-tight dark:text-white mb-10">
-          Debris Detector
+          Structure damage analysis
         </p>
         <p className="text-center max-w-[55vw] mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
           Upload an image of the house or building yoy want to analyze
@@ -73,13 +73,15 @@ const ImageUpload3 = () => {
             />
           </label>
         </div>
+        <div className='flex flex-row justify-center items-center gap-10 transition-all '>
         {imageUrl && (
           <div className="flex flex-col justify-center items-center mt-10">
             <img src={imageUrl} alt="Uploaded Image" className="max-w-[35vw] max-h-[40vh]" />
           </div>
         )}
         {result && (
-          <div className="mt-4 text-gray-500 dark:text-gray-400">
+          <div className="max-w-[35vw] mt-4 text-gray-500 dark:text-gray-400 border border-dashed border-gray-200 p-5 .transition-transform">
+            <p className='text-white text-2xl mb-4'> Generated Analysis</p>
             <p> {removeLines(result)}</p>
           </div>
         )}
@@ -88,6 +90,7 @@ const ImageUpload3 = () => {
             <p>{error}</p>
           </div>
         )}
+        x</div>
       </div>
     </div>
   );
