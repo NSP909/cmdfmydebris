@@ -26,10 +26,10 @@ const HomePage = () => {
           <button className="w-[20vw] h-[5vh] download-btn">Search and Rescue</button>
         </Link>
         <Link to="/debris-detector">
-          <button className="download-btn">Debris Detector</button>
+          <button className="download-btn">Debris Analysis</button>
         </Link>
         <Link to="/house">
-          <button className="download-btn">Damage Analysis</button>
+          <button className="download-btn">Structure Analysis</button>
         </Link>
       </div>
       </section>
