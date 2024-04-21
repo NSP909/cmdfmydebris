@@ -1,8 +1,9 @@
 from pymongo import MongoClient
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from debris import generate_description
 from mapping import grab_frames
+from yolo import detect_person
 import os
 import base64
 import asyncio
@@ -70,5 +71,24 @@ def get_co():
         if 'cood' and 'totalz' in result:
             d[result['totalz']/total]=result['cood']
     return jsonify(d)
+
+@app.route('/detect-person', methods=['POST'])
+def person_detection():
+    if 'file' not in request.files:
+        return 'No file uploaded', 400
+
+    file = request.files['file']
+    if file.filename.endswith('.mp4'):
+        # Do something with the uploaded mp4 file
+
+        upload_path = 'upload/video.mp4'
+        file.save(upload_path)
+        # return send_file(upload_path, mimetype='video/mp4')
+        detect_person(upload_path)
+        video_path = 'result/video.mp4'
+        return send_file(video_path, mimetype='video/mp4')
+    else:
+        return 'Invalid file format. Only mp4 files are allowed', 400
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
