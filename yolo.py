@@ -67,8 +67,9 @@ def detect_person(video_path:str):
 def test_only_person(path: str):
     model = YOLO("yolov8n.pt")
     # Change the argument to 0 for webcam
-    results = model.predict(source=path, classes = 0, show= False, save_dir="result")
+    results = model.predict(source=path, classes = 0, save=True, show= False, save_dir='result')
     print(len(results))
+    return results
 
 if __name__ == '__main__':
     test_only_person("upload/video.mp4")

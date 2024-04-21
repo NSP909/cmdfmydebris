@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 from debris import generate_description, generate_report, detect_damage
 from mapping import grab_frames
-from yolo import detect_person
+from yolo import detect_person, test_only_person
 from mapping import rand_coords
 import os
 import base64
@@ -121,8 +121,9 @@ def person_detection():
         upload_path = 'upload/video.mp4'
         file.save(upload_path)
         # return send_file(upload_path, mimetype='video/mp4')
-        detect_person(upload_path)
-        video_path = 'result/video.mp4'
+        # detect_person(upload_path)
+        test_only_person(upload_path)
+        video_path = 'runs/detect/result/video.mp4'
         return send_file(video_path, mimetype='video/mp4')
     else:
         return 'Invalid file format. Only mp4 files are allowed', 400
