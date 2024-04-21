@@ -56,8 +56,8 @@ function GoogleMapsWithHeatMap() {
           const heatmap = new google.maps.visualization.HeatmapLayer({
             data: heatmapData,
             map: map,
-            gradient: ["rgba(255,20,20 , 0)", "rgba(255, 0, 20, 1)"],
-            radius: 50,
+            gradient: ["rgba(255,0,200 , 0)", "rgba(255, 200, 20, 1)"],
+            radius: 60,
             opacity: 1,
           });
         })
